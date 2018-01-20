@@ -1,0 +1,136 @@
+.home-banner .head-img{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 101%;
+    z-index: 0; 
+}
+.home-banner {
+	position: relative;
+	text-align: center;
+	overflow: hidden;
+	height: 550px;
+	margin-bottom:-70px;
+	
+}
+.home-banner h2{
+	padding-top: 190px;
+	position: relative;
+	font-size: 3vw;
+    font-family: Arial,'Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 52px;
+    z-index: 1;
+    display:block;
+    color: #fff;
+	-webkit-user-select:none;
+	user-select:none;
+}
+.home-banner h3{
+	display:block;
+	padding-top: 9px;
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 10px;
+    margin-top: 8px;
+    -webkit-user-select:none;
+    user-select:none;
+}
+.head-img {
+/* 	width:2000px; */
+/*     transform:scale(2); */
+    border-style: none;
+}
+
+.author {
+    float: right;
+    width: 230px;
+    padding: 10px 10px;
+    margin:10px 20px ;
+    background-color: #fff;
+    border: 1px solid #e7eaf1;
+    border-radius: 3px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 3px rgba(0,37,55,.06)
+}
+.author-card{
+    text-align:center;
+    line-height:21px;
+}
+.author-card ul {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0 none;
+}
+.avatar img{
+    width:50%;
+}
+.author-name{
+    font-size: 16px;
+    color: #4c4a4a;
+    font-weight: 500;
+    margin: 12px 0 6px;
+    font-family:Kaushan Script;
+}
+.author-bio{
+    color: #656565;
+}
+.links{
+    margin-top: 14px;
+}
+.links li{
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    cursor: default;
+    text-align:center;
+}
+.links img{
+    width:80%;
+}
+.weixin{
+    position:relative;
+}
+.weixin img:nth-child(2){
+    display:none;
+}
+.weixin:hover img:nth-child(2){
+    display:block;
+    position: absolute; top:80px;
+    transform:scale(6);
+}
+.sign-QQ {
+    float: left;
+    position:absolute;
+    padding: 10px 30px;
+    margin:10px 20px ;
+/*     background-color: #fff; */
+/*     border: 1px solid #e7eaf1; */
+    border-radius: 3px;
+/*     box-sizing: border-box; */
+/*     box-shadow: 0 1px 3px rgba(0,37,55,.06) */
+}
+.sign-QQ img{
+    width: 20px;
+    height: 20px;
+    
+}
+.sign-QQ form{
+    display:none;
+}
+.sign-QQ:hover form{
+    display:block;   
+}
+.sign-QQ-form {
+    width:150px;
+    height:100px;
+}
+.sign-QQ-form input {
+    width:100px;
+}

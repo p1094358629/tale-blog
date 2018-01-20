@@ -1,0 +1,83 @@
+#include('./partial/header.html',{home_page:1})
+<div class="home-banner"> 
+    <h2>Striving for what you fascinate</h2>
+    <h3>执迷所爱</h3>
+    <img class="head-img" src="/static/admin/images/head-img.jpg">
+</div>
+<div class="main-content index-page clearfix">
+    <aside class="author">
+        <section class="author-card">
+            <div class="avatar">
+                <img src="/static/admin/images/author/avatar.png" />
+            </div>
+            <div class="author-name">zZ~pete</div>
+            <div class="author-bio">
+                           <p>
+                            程序员，极客，皮具爱好者，追求一切美的事物，好交良友。
+                           </p>
+            </div>
+            <ul class="links">
+                <li>
+                    <a class="" href="tencent://message/?uin=1094358629&Site=QQ交谈&Menu=yes" target="_top">
+                        <img src="/static/admin/images/author/QQ.png" />
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.zhihu.com/people/xu-er-min-28/activities" target="_blank">
+                        <img src="/static/admin/images/author/zhihu.png" />
+                    </a>
+                </li>
+                <li>
+                    <a href="http://music.163.com/#/user/home?id=424499784" target="_blank">
+                        <img src="/static/admin/images/author/163music.png" />
+                    </a>
+                </li>
+                <li>
+                    <a class="weixin" href="javascript:" >
+                        <img class="" src="/static/admin/images/author/weixin.png" />
+                        <img class="qrcode" src="/static/admin/images/author/qrcode.png" />
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <a>111</a>
+            <a>111</a>
+            <a>111</a>
+            <a>111</a>
+        </section>
+    </aside>
+    <div class="post-lists">
+        <div class="post-lists-body">
+            #for(article : articles(12).rows)
+            <div class="post-list-item" style="border-radius:15px;">
+                <div class="post-list-item-container">
+                    <div class="item-thumb bg-deepgrey" style="background-image:url(${show_thumb(article)}); width:93%;margin:0 auto"></div>
+                    <a href="${permalink()}">
+                        <div class="item-desc">
+                            <p>${intro(75)}...</p>
+                        </div>
+                    </a>
+<!--                     <div class="item-slant reverse-slant bg-deepgrey"></div> -->
+<!--                     <div class="item-slant"></div> -->
+                    <div class="item-label">
+                        <div class="item-title"><a href="${permalink()}">${title()}</a>
+                        </div>
+                        <div class="item-meta ">
+                            <div class="item-meta-ico ${show_icon()}"
+                                 style="background: url(/templates/themes/default/static/img/bg-ico.png) no-repeat;background-size: 40px auto;">
+                                ${show_categories()}
+                            </div>
+                            <p style="color:#989898">${created('yyyy/MM/dd')}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            #end
+        </div>
+    </div>
+    <div class="lists-navigator clearfix">
+        #call pageNav(articles(12),'←','→','page')
+    </div>
+</div>
+#include('./partial/footer.html')
