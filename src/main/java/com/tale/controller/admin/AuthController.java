@@ -44,6 +44,11 @@ public class AuthController extends BaseController {
                                 Session session, Response response) {
 
         Integer error_count = cache.get("login_error_count");
+        String ip = request.session().attribute("ip");
+
+        //设置单点登录的ip
+        TaleConst.SINGLElOGIN.put("ip", ip); 
+        System.err.println("用户登录的ip为----->"+ip);
         try {
             error_count = null == error_count ? 0 : error_count;
             if (null != error_count && error_count > 3) {

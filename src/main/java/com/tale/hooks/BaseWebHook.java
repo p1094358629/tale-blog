@@ -21,7 +21,7 @@ public class BaseWebHook implements WebHook {
 
         String uri = request.uri();
         String ip  = request.address();
-
+        request.session().attribute("ip", ip);
         // 禁止该ip访问
         if (TaleConst.BLOCK_IPS.contains(ip)) {
             response.text("You have been banned, brother");
@@ -39,6 +39,15 @@ public class BaseWebHook implements WebHook {
             response.redirect(TaleConst.INSTALL_URI);
             return false;
         }
+        //ip不同,则判断为异地登陆,暂不考虑用户,因为只有我一个
+        if (!ip.equals(TaleConst.SINGLElOGIN.get("ip")) && TaleConst.SINGLElOGIN.get("ip")!=null) {
+            //强制用户登出
+            TaleUtils.logout(request.session(), response);
+            System.err.println("用户登出");
+//            request.session().removeAttribute(TaleConst.LOGIN_SESSION_KEY);
+            TaleConst.SINGLElOGIN.put("ip", ip);
+//            response.go("/admin/login");
+        } 
 
         if (TaleConst.INSTALLED) {
             return isRedirect(request, response);
