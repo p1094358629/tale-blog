@@ -14,6 +14,7 @@ CREATE TABLE t_attach (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, fname VARC
 DROP TABLE IF EXISTS t_comments;
 CREATE TABLE t_comments (coid INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, cid INTEGER DEFAULT (0) NOT NULL, created INTEGER (10) NOT NULL, author VARCHAR (200) NOT NULL, author_id INTEGER (10) DEFAULT (0), owner_id INTEGER (10) DEFAULT (0), mail VARCHAR (200) NOT NULL, url VARCHAR (200), ip VARCHAR (64), agent VARCHAR (200), content TEXT NOT NULL, type VARCHAR (16), status VARCHAR (16), parent INTEGER (10) DEFAULT (0));
 
+
 -- 表：t_contents
 DROP TABLE IF EXISTS t_contents;
 
@@ -99,5 +100,10 @@ INSERT INTO t_relationships(cid, mid) VALUES(2, 1);
 DROP TABLE IF EXISTS t_users;
 CREATE TABLE t_users (uid INTEGER PRIMARY KEY UNIQUE NOT NULL, username VARCHAR (64) UNIQUE NOT NULL, password VARCHAR (64) NOT NULL, email VARCHAR (100), home_url VARCHAR (255), screen_name VARCHAR (100), created INTEGER (10) NOT NULL, activated INTEGER (10), logged INTEGER (10), group_name VARCHAR (16));
 
+-- 表：t_talks
+DROP TABLE IF EXISTS t_talks;
+CREATE TABLE t_talks (tid INTEGER PRIMARY KEY UNIQUE NOT NULL, contents TEXT NOT NULL, created INTEGER (10) NOT NULL,status VARCHAR (16));
+INSERT INTO t_talks (tid,contents,created,status) VALUES (1,'第一条说说',1487861184,'1');
+INSERT INTO t_talks (tid,contents,created,status) VALUES (2,'第二条说说',1487862184,'1');
 COMMIT TRANSACTION;
 PRAGMA foreign_keys = on;

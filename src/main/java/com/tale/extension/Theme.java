@@ -12,6 +12,7 @@ import com.tale.model.dto.Types;
 import com.tale.model.entity.Comments;
 import com.tale.model.entity.Contents;
 import com.tale.model.entity.Metas;
+import com.tale.model.entity.Talks;
 import com.tale.service.SiteService;
 import com.tale.utils.TaleUtils;
 import jetbrick.template.runtime.InterpretContext;
@@ -120,6 +121,19 @@ public final class Theme {
         Contents contents = current_article();
         if (null != contents) {
             return Commons.fmtdate(contents.getCreated(), fmt);
+        }
+        return "";
+    }
+    /**
+     * 显示时间轴创建日期
+     *
+     * @param fmt
+     * @return
+     */
+    public static String talkCreated(String fmt) {
+        Talks talks = current_talk();
+        if (null != talks) {
+            return Commons.fmtdate(talks.getCreated(), fmt);
         }
         return "";
     }
@@ -654,6 +668,20 @@ public final class Theme {
         Object           value = ctx.getValueStack().getValue("article");
         if (null != value) {
             return (Contents) value;
+        }
+        return null;
+    }
+    
+    /**
+     * 获取当前上下文的时间轴对象
+     *
+     * @return
+     */
+    private static Talks current_talk() {
+        InterpretContext ctx   = InterpretContext.current();
+        Object           talk = ctx.getValueStack().getValue("talk");
+        if (null != talk) {
+            return (Talks) talk;
         }
         return null;
     }

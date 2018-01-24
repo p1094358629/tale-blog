@@ -19,10 +19,12 @@ import com.tale.model.dto.ErrorCode;
 import com.tale.model.dto.Types;
 import com.tale.model.entity.Comments;
 import com.tale.model.entity.Contents;
+import com.tale.model.entity.Talks;
 import com.tale.service.CommentsService;
 import com.tale.service.ContentsService;
 import com.tale.service.MetasService;
 import com.tale.service.SiteService;
+import com.tale.service.TalkService;
 import com.tale.utils.TaleUtils;
 import com.vdurmont.emoji.EmojiParser;
 import lombok.extern.slf4j.Slf4j;
@@ -52,6 +54,9 @@ public class IndexController extends BaseController {
 
     @Inject
     private SiteService siteService;
+    
+    @Inject
+    private TalkService talksService;
 
     /**
      * 首页
@@ -115,6 +120,7 @@ public class IndexController extends BaseController {
     /**
      * 文章页
      */
+    //FIXME
     @CsrfToken(newToken = true)
     @GetRoute(value = {"article/:cid", "article/:cid.html"})
     public String post(Request request, @PathParam String cid) {
@@ -182,6 +188,19 @@ public class IndexController extends BaseController {
         request.attribute("archives", archives);
         request.attribute("is_archive", true);
         return this.render("archives");
+    }
+    /**
+     * 时间轴
+     *
+     * @return
+     */
+    //FIXME
+    @GetRoute(value = {"talks", "talks.html"})
+    public String talks(Request request) {
+        List<Talks> talks = talksService.getTalks();
+        request.attribute("talks", talks);
+//        request.attribute("is_talk", true);
+        return this.render("talks");
     }
 
     /**

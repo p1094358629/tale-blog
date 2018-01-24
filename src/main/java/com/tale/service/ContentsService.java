@@ -89,7 +89,7 @@ public class ContentsService {
         }
 
         contents.setContent(EmojiParser.parseToAliases(contents.getContent()));
-
+        //获取当前时间
         int time = DateKit.nowUnix();
         contents.setCreated(time);
         contents.setModified(time);
