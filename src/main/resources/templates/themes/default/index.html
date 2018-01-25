@@ -5,48 +5,7 @@
     <img class="head-img" src="/static/admin/images/head-img.jpg">
 </div>
 <div class="main-content index-page clearfix">
-    <aside class="author">
-        <section class="author-card">
-            <div class="avatar">
-                <img src="/static/admin/images/author/avatar.png" />
-            </div>
-            <div class="author-name">zZ~pete</div>
-            <div class="author-bio">
-                           <p>
-                            程序员，极客，皮具爱好者，追求一切美的事物，好交良友。
-                           </p>
-            </div>
-            <ul class="links">
-                <li>
-                    <a class="" href="tencent://message/?uin=1094358629&Site=QQ交谈&Menu=yes" target="_top">
-                        <img src="/static/admin/images/author/QQ.png" />
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.zhihu.com/people/xu-er-min-28/activities" target="_blank">
-                        <img src="/static/admin/images/author/zhihu.png" />
-                    </a>
-                </li>
-                <li>
-                    <a href="http://music.163.com/#/user/home?id=424499784" target="_blank">
-                        <img src="/static/admin/images/author/163music.png" />
-                    </a>
-                </li>
-                <li>
-                    <a class="weixin" href="javascript:" >
-                        <img class="" src="/static/admin/images/author/weixin.png" />
-                        <img class="qrcode" src="/static/admin/images/author/qrcode.png" />
-                    </a>
-                </li>
-            </ul>
-        </section>
-        <section>
-            <a>111</a>
-            <a>111</a>
-            <a>111</a>
-            <a>111</a>
-        </section>
-    </aside>
+#include('./partial/author.html')
     <div class="post-lists">
         <div class="post-lists-body">
             #for(article : articles(12).rows)

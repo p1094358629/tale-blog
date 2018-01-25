@@ -97,40 +97,20 @@
 .weixin{
     position:relative;
 }
-.weixin img:nth-child(2){
+.weixin div{
     display:none;
 }
-.weixin:hover img:nth-child(2){
+.weixin:hover div{
+	width:100px; 
+    height:100px; 
     display:block;
-    position: absolute; top:80px;
-    transform:scale(6);
-}
-.sign-QQ {
-    float: left;
-    position:absolute;
-    padding: 10px 30px;
-    margin:10px 20px ;
-/*     background-color: #fff; */
-/*     border: 1px solid #e7eaf1; */
-    border-radius: 3px;
-/*     box-sizing: border-box; */
-/*     box-shadow: 0 1px 3px rgba(0,37,55,.06) */
-}
-.sign-QQ img{
-    width: 20px;
-    height: 20px;
-    
-}
-.sign-QQ form{
-    display:none;
-}
-.sign-QQ:hover form{
-    display:block;   
-}
-.sign-QQ-form {
-    width:150px;
-    height:100px;
-}
-.sign-QQ-form input {
-    width:100px;
+	position:fixed;
+	top:50%;
+    left:40%;
+    right:60%;
+    z-index:1;
+/*     margin:auto; */
+/*     margin-top:-100px; */
+/*     margin-left:-100px; */
+    transform:scale(3);
 }

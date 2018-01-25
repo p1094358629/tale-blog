@@ -202,6 +202,16 @@ public class IndexController extends BaseController {
 //        request.attribute("is_talk", true);
         return this.render("talks");
     }
+    /**
+     * 皮囊
+     *
+     * @return
+     */
+    //FIXME
+    @GetRoute(value = {"leath", "leath.html"})
+    public String leath(Request request) {
+        return this.render("leath");
+    }
 
     /**
      * feed页

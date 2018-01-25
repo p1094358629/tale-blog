@@ -19,6 +19,8 @@ import com.tale.model.entity.Users;
 import com.tale.service.ContentsService;
 import com.tale.service.MetasService;
 import com.tale.service.SiteService;
+import com.tale.service.TalkService;
+
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
@@ -40,6 +42,7 @@ public class ArticleController extends BaseController {
 
     @Inject
     private SiteService siteService;
+
 
     /**
      * 文章管理首页
@@ -71,6 +74,7 @@ public class ArticleController extends BaseController {
         request.attribute(Types.ATTACH_URL, Commons.site_option(Types.ATTACH_URL, Commons.site_url()));
         return "admin/article_edit";
     }
+   
 
     /**
      * 文章编辑页面
@@ -98,6 +102,7 @@ public class ArticleController extends BaseController {
      *
      * @return
      */
+    //FIXME
     @PostRoute(value = "publish")
     @JSON
     public RestResponse publishArticle(@Valid Contents contents) {
