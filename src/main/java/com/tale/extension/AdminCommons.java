@@ -12,7 +12,7 @@ public final class AdminCommons {
 
     /**
      * 判断category和cat的交集
-     *
+     *explain:如果当前遍历的标签是当前文章的标签,即选中.
      * @param cats
      * @return
      */

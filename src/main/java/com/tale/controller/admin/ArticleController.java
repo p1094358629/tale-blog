@@ -69,6 +69,7 @@ public class ArticleController extends BaseController {
      */
     @GetRoute(value = "publish")
     public String newArticle(Request request) {
+        //得到所有的标签集合
         List<Metas> categories = metasService.getMetas(Types.CATEGORY);
         request.attribute("categories", categories);
         request.attribute(Types.ATTACH_URL, Commons.site_option(Types.ATTACH_URL, Commons.site_url()));

@@ -46,9 +46,11 @@
 /*     transform:scale(2); */
     border-style: none;
 }
-
+.right-item{
+	float: right;
+}
 .author {
-    float: right;
+/*     float: right; */
     width: 230px;
     padding: 10px 10px;
     margin:10px 20px ;
@@ -113,4 +115,17 @@
 /*     margin-top:-100px; */
 /*     margin-left:-100px; */
     transform:scale(3);
+}
+.article-list{
+	width: 230px;
+    padding: 10px 25px;
+    margin:10px 20px ;
+    background-color: #fff;
+    border: 1px solid #e7eaf1;
+    border-radius: 3px;
+    box-sizing: border-box;
+    box-shadow: 0 1px 3px rgba(0,37,55,.06)
+}
+.right{
+	float:right;
 }

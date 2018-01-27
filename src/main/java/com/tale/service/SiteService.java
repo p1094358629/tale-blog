@@ -37,9 +37,18 @@ public class SiteService {
 
     @Inject
     private CommentsService commentsService;
+    @Inject
+    private static ContentsService contentsService;
 
     public MapCache mapCache = new MapCache();
-
+    /**
+     * 根据文章类型查询数量
+     * @param 
+     */
+    public long getCount(String categories){
+        String sql = "select count(*) from t_contents where categories = ?";
+        return new Contents().count(sql, categories);
+    }
     /**
      * 初始化站点
      *
@@ -75,7 +84,6 @@ public class SiteService {
         Page<Comments> commentsPage = new Comments().page(1, limit, "created desc");
         return commentsPage.getRows();
     }
-
     /**
      * 根据类型获取文章列表
      *

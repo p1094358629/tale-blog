@@ -8,11 +8,13 @@ import com.blade.mvc.WebContext;
 import com.blade.mvc.http.Request;
 import com.tale.init.TaleConst;
 import com.tale.model.dto.Comment;
+import com.tale.model.dto.Statistics;
 import com.tale.model.dto.Types;
 import com.tale.model.entity.Comments;
 import com.tale.model.entity.Contents;
 import com.tale.model.entity.Metas;
 import com.tale.model.entity.Talks;
+import com.tale.service.ContentsService;
 import com.tale.service.SiteService;
 import com.tale.utils.TaleUtils;
 import jetbrick.template.runtime.InterpretContext;
@@ -20,6 +22,8 @@ import jetbrick.template.runtime.InterpretContext;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.*;
+
+import org.omg.CosNaming.NamingContextExtPackage.StringNameHelper;
 
 /**
  * 主题函数
@@ -29,7 +33,7 @@ import java.util.*;
 public final class Theme {
 
     private static SiteService siteService;
-
+    
     public static final List EMPTY = new ArrayList(0);
 
     public static void setSiteService(SiteService ss) {
@@ -188,7 +192,8 @@ public final class Theme {
         }
         return Collections.emptyList();
     }
-
+    
+    
     /**
      * 当前文章的标签列表
      *
@@ -220,7 +225,16 @@ public final class Theme {
         }
         return show_categories("默认分类");
     }
-
+    /**
+     * 当前分类的数量
+     */
+    //FIXME
+    public static String getCount(String categories) {
+        long l = siteService.getCount(categories);
+        String s = l +"";
+        
+        return s;
+    }
     /**
      * 显示标签
      *
@@ -478,7 +492,6 @@ public final class Theme {
 
     /**
      * 随机获取limit个分类
-     *
      * @param limit
      * @return
      */

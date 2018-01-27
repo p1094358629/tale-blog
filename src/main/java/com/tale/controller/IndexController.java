@@ -19,6 +19,7 @@ import com.tale.model.dto.ErrorCode;
 import com.tale.model.dto.Types;
 import com.tale.model.entity.Comments;
 import com.tale.model.entity.Contents;
+import com.tale.model.entity.Metas;
 import com.tale.model.entity.Talks;
 import com.tale.service.CommentsService;
 import com.tale.service.ContentsService;
@@ -114,6 +115,12 @@ public class IndexController extends BaseController {
         request.attribute("limit", limit);
         request.attribute("is_home", true);
         request.attribute("page_prefix", "/page");
+        
+        /**
+         * 加载主页的文章列表
+         */
+        List<Metas> categories = metasService.getMetas(Types.CATEGORY);
+        request.attribute("categories", categories);
         return this.render("index");
     }
 
