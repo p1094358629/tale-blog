@@ -1,0 +1,55 @@
+<div class="right-item">
+	<aside class="author">
+	    <section class="author-card">
+	        <div class="avatar">
+	            <img src="/static/admin/images/author/avatar.png" />
+	        </div>
+	        <div class="author-name">zZ~pete</div>
+	        <div class="author-bio">
+	                       <p>
+	                        程序员，极客，皮具爱好者，追求一切美的事物，好交良友。
+	                       </p>
+	        </div>
+	        <ul class="links">
+	            <li>
+	                <a class="iconfont icon-qq" href="tencent://message/?uin=1094358629&Site=QQ交谈&Menu=yes" target="_top">
+	                </a>
+	            </li>
+	            <li>
+	                <a class="weixin iconfont icon-weixin" href="javascript:" >
+	                    <div><img class="qrcode" src="/static/admin/images/author/qrcode.png" /></div>
+	                </a>
+	            </li>
+	            <li>
+	                <a class="iconfont icon-github" href="https://github.com/p1094358629" >
+	                </a>
+	            </li>
+	            <li>
+	                <a class="iconfont icon-zhihu" href="https://www.zhihu.com/people/xu-er-min-28/activities" target="_blank">
+	                </a>
+	            </li>
+	            <li>
+	                <a class="iconfont icon-yinle" href="http://music.163.com/#/user/home?id=424499784" target="_blank">
+	                </a>
+	            </li>
+	        </ul>
+	    </section>
+	</aside>
+	<div class="article-list">
+	       <div class=""> 
+	       <span style="font-weight:bold" class="">文章分类</span>    
+	       <a style="margin-left:50%" href="/admin/article" target="_top">管理</a>    
+	      </div>
+	       <div >
+	                   <a href="${site_url('/archives')}">全部分类</a>
+	       <span class="right getTotalArts" style="margin-right:5%"></span>
+	       </div>
+	       #for(c : categories)
+	       <div  #if(c.name=='默认分类') style="display:none" #end>
+	           ${show_categories(c.name)}
+	           <span class="right" style="margin-right:5%">(${getCount(c.name)})</span>
+	           <input name="category" type="hidden" value=${getCount(c.name)} />
+	       </div>
+	       #end	  
+	</div>
+</div>

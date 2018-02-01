@@ -67,7 +67,7 @@ public class ArticleController extends BaseController {
      * @param request
      * @return
      */
-    @GetRoute(value = "publish")
+    @GetRoute(value = "publishArts")
     public String newArticle(Request request) {
         //得到所有的标签集合
         List<Metas> categories = metasService.getMetas(Types.CATEGORY);

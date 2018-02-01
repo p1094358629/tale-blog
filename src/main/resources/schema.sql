@@ -102,7 +102,7 @@ CREATE TABLE t_users (uid INTEGER PRIMARY KEY UNIQUE NOT NULL, username VARCHAR 
 
 -- 表：t_talks
 DROP TABLE IF EXISTS t_talks;
-CREATE TABLE t_talks (tid INTEGER PRIMARY KEY UNIQUE NOT NULL, contents TEXT NOT NULL, created INTEGER (10) NOT NULL,status VARCHAR (16));
+CREATE TABLE t_talks (tid INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE NOT NULL, contents TEXT NOT NULL, created INTEGER (10) NOT NULL,status VARCHAR (16));
 INSERT INTO t_talks (tid,contents,created,status) VALUES (1,'第一条说说',1487861184,'1');
 INSERT INTO t_talks (tid,contents,created,status) VALUES (2,'第二条说说',1487862184,'1');
 COMMIT TRANSACTION;

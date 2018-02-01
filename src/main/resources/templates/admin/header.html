@@ -63,8 +63,11 @@
                     <li #if(active=='home') class="active" #end>
                         <a href="/admin/index" class="waves-effect #if(active=='home') active #end"><i class="fa fa-dashboard" aria-hidden="true"></i><span> 仪表盘 </span></a>
                     </li>
-                    <li #if(active=='publish') class="active" #end>
-                        <a href="/admin/article/publish" class="waves-effect #if(active=='publish') active #end"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><span> 发布文章 </span></a>
+                    <li #if(active=='publishArts') class="active" #end>
+                        <a href="/admin/article/publishArts" class="waves-effect #if(active=='publishArts') active #end"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><span> 发布文章 </span></a>
+                    </li>
+                    <li #if(active=='publishTalks') class="active" #end>
+                        <a href="/admin/talk/publishTalks" class="waves-effect #if(active=='publishTalks') active #end"><i class="fa fa-pencil-square-o" aria-hidden="true"></i><span> 发布说说 </span></a>
                     </li>
                     <li #if(active=='article') class="active" #end>
                         <a href="/admin/article" class="waves-effect #if(active=='article') active #end"><i class="fa fa-list" aria-hidden="true"></i><span> 文章管理 </span></a>

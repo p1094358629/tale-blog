@@ -1,0 +1,15 @@
+#include('./partial/header.html', {title: '光光不光的时间轴'})
+<div class="main-content index-page clearfix">
+#include('./partial/author.html')
+    <div class="post-lists">
+        <div class="post-lists-body">
+            #for(talk : talks)
+	            <div class="">
+	                <p>${talk.contents}...</p>
+	                <p>${talkCreated('yyyy/MM/dd')}</p>
+	            </div>
+            #end
+        </div>
+    </div>
+</div>
+#include('./partial/footer.html')
