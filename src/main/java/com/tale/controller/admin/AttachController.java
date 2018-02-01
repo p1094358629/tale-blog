@@ -11,6 +11,7 @@ import com.blade.mvc.http.HttpMethod;
 import com.blade.mvc.http.Request;
 import com.blade.mvc.multipart.FileItem;
 import com.blade.mvc.ui.RestResponse;
+import com.tale.TestQiniu;
 import com.tale.controller.BaseController;
 import com.tale.exception.TipException;
 import com.tale.extension.Commons;
@@ -99,6 +100,7 @@ public class AttachController extends BaseController {
 
                     try {
                         Files.write(Paths.get(filePath), f.getData());
+                        TestQiniu.upload(filePath,fname);
                     } catch (IOException e) {
                         log.error("", e);
                     }
@@ -106,7 +108,7 @@ public class AttachController extends BaseController {
                     Attach attach = new Attach();
                     attach.setFname(fname);
                     attach.setAuthor_id(uid);
-                    attach.setFkey(fkey);
+                    attach.setFkey(TestQiniu.load(fname));
                     attach.setFtype(ftype);
                     attach.setCreated(DateKit.nowUnix());
                     attach.save();
