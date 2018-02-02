@@ -8,7 +8,7 @@
     #include('./partial/author.html')
     <div class="post-lists">
         <div class="post-lists-body">
-            #for(article : articles(12).rows)
+            #for(article : articles(6).rows)
             <div class="post-list-item" style="border-radius:15px;">
                 <div class="post-list-item-container">
                     <div class="item-thumb bg-deepgrey" style="background-image:url(${show_thumb(article)}); width:93%;margin:0 auto"></div>
@@ -36,7 +36,7 @@
         </div>
     </div>
     <div class="lists-navigator clearfix">
-        #call pageNav(articles(12),'←','→','page')
+        #call pageNav(articles(6),'←','→','page')
     </div>
 </div>
 #include('./partial/footer.html')

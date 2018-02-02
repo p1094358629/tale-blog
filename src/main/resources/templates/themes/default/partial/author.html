@@ -36,20 +36,36 @@
 	    </section>
 	</aside>
 	<div class="article-list">
-	       <div class=""> 
-	       <span style="font-weight:bold" class="">文章分类</span>    
-	       <a style="margin-left:50%" href="/admin/article" target="_top">管理</a>    
-	      </div>
-	       <div >
-	                   <a href="${site_url('/archives')}">全部分类</a>
-	       <span class="right getTotalArts" style="margin-right:5%"></span>
-	       </div>
-	       #for(c : categories)
+	    <div class=""> 
+	     <span style="font-weight:bold" class="">文章分类</span>    
+	     <a style="margin-left:50%" href="/admin/article" target="_top">管理</a>    
+	    </div>
+		<div >
+			<a href="${site_url('/archives')}">全部分类</a>
+			<span class="right getTotalArts" style="margin-right:5%"></span>
+		</div>
+       #for(c : categories)
 	       <div  #if(c.name=='默认分类') style="display:none" #end>
 	           ${show_categories(c.name)}
 	           <span class="right" style="margin-right:5%">(${getCount(c.name)})</span>
 	           <input name="category" type="hidden" value=${getCount(c.name)} />
 	       </div>
-	       #end	  
+       #end	  
+	</div>
+	<div class="tagscloud" id="tagscloud">
+	   <span style="font-size:30px">标签库</span>
+	   #for(c: tags)
+	       <a href="/tag/${c.name}" class="${randColor()}">${c.name}</a>
+	   #end
 	</div>
 </div>
+<style type="text/css">
+	/* tagscloud */
+	#tagscloud{width:250px;height:260px;position:relative;font-size:12px;color:#333;margin:20px auto 0;text-align:center;}
+	#tagscloud a{position:absolute;top:0px;left:0px;color:#333;font-family:Arial;text-decoration:none;margin:0 10px 15px 0;line-height:18px;text-align:center;font-size:12px;padding:1px 5px;display:inline-block;border-radius:3px;}
+ 	#tagscloud a.blue{background:blue;color:#fff;} 
+ 	#tagscloud a.orange{background:#F16E50;color:#fff;} 
+ 	#tagscloud a.gray{background:red;color:#fff;}
+ 	#tagscloud a.green{background:green;color:#fff;} 
+	#tagscloud a:hover{color:#fff;background:#0099ff;}
+</style>

@@ -274,6 +274,14 @@ public final class Theme {
     }
 
     /**
+     * 显示所有标签 
+     */
+    public static List<Metas> show_allTags() throws UnsupportedEncodingException {
+        List<Metas> tags = siteService.getMetas(Types.RECENT_META, Types.TAG, TaleConst.MAX_POSTS);
+        return tags;
+    }
+    
+    /**
      * 显示文章内容，格式化markdown后的
      *
      * @return
@@ -336,7 +344,7 @@ public final class Theme {
      */
     public static String article(String value) {
         if (StringKit.isNotBlank(value)) {
-            value = value.replace("<!--more-->", "\r\n");
+            value = value.replace("<!-more-->", "\r\n");
             return TaleUtils.mdToHtml(value);
         }
         return "";
@@ -784,5 +792,10 @@ public final class Theme {
             }
         }
         return false;
+    }
+    public static String randColor(){
+        String[] list =  {"blue","orange","green","gray"};
+        int x=(int)(Math.random()*4);
+        return list[x];
     }
 }

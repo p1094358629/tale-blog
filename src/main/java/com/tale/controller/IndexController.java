@@ -34,6 +34,8 @@ import java.net.URLEncoder;
 import java.util.List;
 import java.util.Optional;
 
+import javax.sound.midi.Synthesizer;
+
 /**
  * 首页、归档、Feed、评论
  *
@@ -65,7 +67,7 @@ public class IndexController extends BaseController {
      * @return
      */
     @GetRoute
-    public String index(Request request, @Param(defaultValue = "12") int limit) {
+    public String index(Request request, @Param(defaultValue = "6") int limit) {
         return this.index(request, 1, limit);
     }
 
@@ -106,7 +108,7 @@ public class IndexController extends BaseController {
      * @return
      */
     @GetRoute(value = {"page/:page", "page/:page.html"})
-    public String index(Request request, @PathParam int page, @Param(defaultValue = "12") int limit) {
+    public String index(Request request, @PathParam int page, @Param(defaultValue = "6") int limit) {
         page = page < 0 || page > TaleConst.MAX_PAGE ? 1 : page;
         if (page > 1) {
             this.title(request, "第" + page + "页");
@@ -121,13 +123,15 @@ public class IndexController extends BaseController {
          */
         List<Metas> categories = metasService.getMetas(Types.CATEGORY);
         request.attribute("categories", categories);
+        List<Metas> tags = metasService.getMetas(Types.TAG);
+        System.err.println("categories"+categories);
+        request.attribute("tags",tags);
         return this.render("index");
     }
 
     /**
      * 文章页
      */
-    //FIXME
     @CsrfToken(newToken = true)
     @GetRoute(value = {"article/:cid", "article/:cid.html"})
     public String post(Request request, @PathParam String cid) {
@@ -201,7 +205,6 @@ public class IndexController extends BaseController {
      *
      * @return
      */
-    //FIXME
     @GetRoute(value = {"talks", "talks.html"})
     public String talks(Request request) {
         List<Talks> talks = talksService.getTalks();
