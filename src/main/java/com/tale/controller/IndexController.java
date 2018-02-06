@@ -283,7 +283,7 @@ public class IndexController extends BaseController {
     @JSON
     public RestResponse comment(Request request, Response response,
                                 @HeaderParam String Referer, @Valid Comments comments) {
-
+        System.err.println("comment_begin--------------------------");
         if (StringKit.isBlank(Referer)) {
             return RestResponse.fail(ErrorCode.BAD_REQUEST);
         }

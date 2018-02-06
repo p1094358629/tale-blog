@@ -51,7 +51,7 @@ public class CommentsService {
             comments.setParent(comments.getCoid());
             comments.setCoid(null);
             comments.save();
-
+            System.err.println("comment-into");
             Contents temp = new Contents();
             temp.setCommentsNum(contents.getCommentsNum() + 1);
             temp.update(contents.getCid());

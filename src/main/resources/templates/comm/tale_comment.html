@@ -14,6 +14,7 @@
                     async: false,
                     dataType: 'json',
                     success: function (result) {
+                    	console.log("result.msg"+result.msg);
                         $('#comment-form input[name=coid]').val('');
                         if (result && result.success) {
                             window.location.reload();

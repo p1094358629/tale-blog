@@ -12,8 +12,7 @@ var mouseY = 10;
 var howElliptical = 1;
 var aA = null;
 var oDiv = null;
-window.onload=function ()
-{
+
 	var i=0;
 	var oTag=null;
 	oDiv=document.getElementById('tagscloud');
@@ -52,7 +51,7 @@ window.onload=function ()
             update();
             setTimeout(arguments.callee, 40);
         })();
-};
+
 function update()
 {
 	var a, b, c = 0;
@@ -120,8 +119,12 @@ function positionAll()
 }
 function doPosition()
 {
-	var l = oDiv.offsetWidth / 2;
-        var t = oDiv.offsetHeight / 2;
+//	oDiv=document.getElementById('tagscloud');
+//	var l = oDiv.offsetWidth / 2;
+//        var t = oDiv.offsetHeight / 2;
+	l=125;
+	t=130;
+//	window.location.reload();
         for (var i = 0; i < mcList.length; i++) {
             if (mcList[i].on) {
                 continue;
