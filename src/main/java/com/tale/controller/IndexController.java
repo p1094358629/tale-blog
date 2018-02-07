@@ -126,6 +126,7 @@ public class IndexController extends BaseController {
         List<Metas> tags = metasService.getMetas(Types.TAG);
         System.err.println("categories"+categories);
         request.attribute("tags",tags);
+        log.info("tags-----------"+tags);
         return this.render("index");
     }
 

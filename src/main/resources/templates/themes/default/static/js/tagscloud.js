@@ -5,18 +5,21 @@ var mcList = [];
 var lasta = 1;
 var lastb = 1;
 var distr = true;
-var tspeed = 11;
+var tspeed = 10;
 var size = 200;
 var mouseX = 0;
 var mouseY = 10;
 var howElliptical = 1;
 var aA = null;
 var oDiv = null;
-
+//window.onload=function(){
+	console.log("tagscloud--enter");
+		
 	var i=0;
 	var oTag=null;
 	oDiv=document.getElementById('tagscloud');
 	aA=oDiv.getElementsByTagName('a');
+	console.log("aA.length---"+aA.length);
 	for(i=0;i<aA.length;i++)
 	{
 		oTag={};		
@@ -47,13 +50,16 @@ var oDiv = null;
 	}
 	sineCosine( 0,0,0 );
 	positionAll();
-	(function () {
-            update();
-            setTimeout(arguments.callee, 40);
-        })();
-
+//	(function () {
+//            update();//?
+//            //bug原因:重复刷新时,1000个平率内多次做了递归
+//            setTimeout(arguments.callee, 1000);//移动频率
+//        })();
+	 setInterval(update,40);//等于上述效果
+//}
 function update()
 {
+	console.log("update---");
 	var a, b, c = 0;
         a = (Math.min(Math.max(-mouseY, -size), size) / radius) * tspeed;
         b = (-Math.min(Math.max(-mouseX, -size), size) / radius) * tspeed;
@@ -85,10 +91,12 @@ function update()
 
             per = d / (d + rz3);
 
-            mcList[i].x = (howElliptical * rx3 * per) - (howElliptical * 2);
+//            mcList[i].x = (howElliptical * rx3 * per) - (howElliptical * 2);
+            mcList[i].x = ( rx3 * per);
             mcList[i].y = ry3 * per;
             mcList[i].scale = per;
             var alpha = per;
+//            console.log("alpha---"+alpha);
             alpha = (alpha - 0.6) * (10 / 6);
             mcList[i].alpha = alpha * alpha * alpha - 0.2;
             mcList[i].zIndex = Math.ceil(100 - Math.floor(mcList[i].cz));
@@ -120,31 +128,31 @@ function positionAll()
 function doPosition()
 {
 //	oDiv=document.getElementById('tagscloud');
-//	var l = oDiv.offsetWidth / 2;
-//        var t = oDiv.offsetHeight / 2;
-	l=125;
-	t=130;
+	var l = oDiv.offsetWidth / 2;
+        var t = oDiv.offsetHeight / 2;
+//	l=125;
+//	t=130;
 //	window.location.reload();
         for (var i = 0; i < mcList.length; i++) {
             if (mcList[i].on) {
                 continue;
             }
             var aAs = aA[i].style;
-            if (mcList[i].alpha > 0.1) {
-                if (aAs.display != '')
-                    aAs.display = '';
-            } else {
-                if (aAs.display != 'none')
-                    aAs.display = 'none';
-                continue;
-            }
+//            if (mcList[i].alpha > 0.1) {
+//                if (aAs.display != '')
+//                    aAs.display = '';
+//            } else {
+//                if (aAs.display != 'none')
+//                    aAs.display = 'none';
+//                continue;
+//            }
             aAs.left = mcList[i].cx + l - mcList[i].offsetWidth / 2 + 'px';
             aAs.top = mcList[i].cy + t - mcList[i].offsetHeight / 2 + 'px';
             //aAs.fontSize=Math.ceil(12*mcList[i].scale/2)+8+'px';
             //aAs.filter="progid:DXImageTransform.Microsoft.Alpha(opacity="+100*mcList[i].alpha+")";
             aAs.filter = "alpha(opacity=" + 100 * mcList[i].alpha + ")";
             aAs.zIndex = mcList[i].zIndex;
-            aAs.opacity = mcList[i].alpha;
+            aAs.opacity = mcList[i].alpha;//透明度
         }
 }
 function sineCosine( a, b, c)

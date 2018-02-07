@@ -52,7 +52,7 @@
 	       </div>
        #end	  
 	</div>
-	<div class="tagscloud" id="tagscloud">
+	<div class="tagscloud" id="tagscloud" >
 	   <span style="font-size:30px">标签库</span>
 	   #for(c: tags)
 	       <a href="/tag/${c.name}" class="${randColor()}">${c.name}</a>
@@ -69,3 +69,4 @@
  	#tagscloud a.green{background:#088A4B;color:#fff;} 
 	#tagscloud a:hover{color:#fff;background:#0099ff;}
 </style>
+<script src="${theme_url('/static/js/tagscloud.js')}"></script>
