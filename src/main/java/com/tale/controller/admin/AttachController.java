@@ -147,11 +147,11 @@ public class AttachController extends BaseController {
             String fkey = attach.getFkey();
             siteService.cleanCache(Types.C_STATISTICS);
             String             filePath = CLASSPATH.substring(0, CLASSPATH.length() - 1) + fkey;
-            java.nio.file.Path path     = Paths.get(filePath);
+//            java.nio.file.Path path     = Paths.get(filePath);
             log.info("Delete attach: [{}]", filePath);
-            if (Files.exists(path)) {
-                Files.delete(path);
-            }
+//            if (Files.exists(path)) {
+//                Files.delete(path);
+//            }
             attach.delete(id);
             new Logs(LogActions.DEL_ATTACH, fkey, request.address(), this.getUid()).save();
         } catch (Exception e) {

@@ -32,7 +32,7 @@ public interface Types {
     /**
      * 附件存放的URL，默认为网站地址，如集成第三方则为第三方CDN域名
      */
-    String ATTACH_URL = "http://p3gikri3r.bkt.clouddn.com";
+    String ATTACH_URL = "http://xuyimin.club";
 
     /**
      * 网站要过滤，禁止访问的ip列表

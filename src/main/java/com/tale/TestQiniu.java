@@ -11,6 +11,7 @@ import com.qiniu.storage.Configuration;
 import com.qiniu.storage.UploadManager;
 import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.util.Auth;
+import com.tale.model.dto.Types;
 
 public class TestQiniu {
     private static String accessKey = "9A0HSk3yit_ClUn1ruVm5SRQtYSVN8oiSmp88mus";
@@ -46,7 +47,7 @@ public class TestQiniu {
     public static String load(String fileName){
         String publicUrl = null;
         try {
-            String domainOfBucket = "http://p3gikri3r.bkt.clouddn.com";
+            String domainOfBucket = Types.ATTACH_URL;
             String encodedFileName = URLEncoder.encode(fileName, "utf-8");
             publicUrl = String.format("%s/%s", domainOfBucket, encodedFileName);
         } catch (UnsupportedEncodingException e) {

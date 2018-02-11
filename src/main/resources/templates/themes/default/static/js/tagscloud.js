@@ -13,13 +13,11 @@ var howElliptical = 1;
 var aA = null;
 var oDiv = null;
 //window.onload=function(){
-	console.log("tagscloud--enter");
 		
 	var i=0;
 	var oTag=null;
 	oDiv=document.getElementById('tagscloud');
 	aA=oDiv.getElementsByTagName('a');
-	console.log("aA.length---"+aA.length);
 	for(i=0;i<aA.length;i++)
 	{
 		oTag={};		
@@ -59,7 +57,6 @@ var oDiv = null;
 //}
 function update()
 {
-	console.log("update---");
 	var a, b, c = 0;
         a = (Math.min(Math.max(-mouseY, -size), size) / radius) * tspeed;
         b = (-Math.min(Math.max(-mouseX, -size), size) / radius) * tspeed;
