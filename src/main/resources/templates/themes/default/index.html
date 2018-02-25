@@ -18,7 +18,9 @@
                         </div>
                     </a>
 <!--                     <div class="item-slant reverse-slant bg-deepgrey"></div> -->
-<!--                     <div class="item-slant"></div> -->
+                    #if(article.allowTop)
+                    <div class="item-slant" >Top</div>
+                    #end
                     <div class="item-label">
                         <div class="item-title"><a href="${permalink()}">${title()}</a>
                         </div>

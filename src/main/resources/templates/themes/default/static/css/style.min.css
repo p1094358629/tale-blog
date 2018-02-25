@@ -801,7 +801,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     -webkit-transform: rotate(7deg) translate(-10px, 0);
     -ms-transform: rotate(7deg) translate(-10px, 0);
     transform: rotate(7deg) translate(-10px, 0);
-    background-color: #fff
+/*     background-color: #fff */
 }
 
 .post-list-item-container .item-slant.reverse-slant {
@@ -813,7 +813,13 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
     -webkit-box-shadow: none;
     box-shadow: none
 }
-
+.item-slant {
+	padding-left:10%;
+	font-size:30px;
+	font-family: Lobster;
+	background-color:#FFFF00;
+	opacity:0.4;
+}
 .post-list-item-container .item-label {
     position: relative;
     height: 130px;

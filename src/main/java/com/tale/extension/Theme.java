@@ -668,7 +668,7 @@ public final class Theme {
         page = null == page ? request.queryInt("page", 1) : page;
         page = page < 0 || page > TaleConst.MAX_PAGE ? 1 : page;
 
-        Page<Contents> articles = new Contents().where("type", Types.ARTICLE).and("status", Types.PUBLISH).page(page, limit, "created desc");
+        Page<Contents> articles = new Contents().where("type", Types.ARTICLE).and("status", Types.PUBLISH).page(page, limit, "allow_top desc,created desc");
 
         request.attribute("articles", articles);
         if (page > 1) {

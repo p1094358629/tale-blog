@@ -60,4 +60,6 @@ public class Contents extends ActiveRecord {
     private Boolean allowPing;
     // 允许出现在聚合中
     private Boolean allowFeed;
+    //是否允许置顶
+    private Boolean allowTop;
 }

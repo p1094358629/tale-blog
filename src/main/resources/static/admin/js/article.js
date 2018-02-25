@@ -223,6 +223,7 @@ function subArticle(status) {
     $("#articleForm #status").val(status);
     $("#articleForm #categories").val($('#multiple-sel').val());
     var params = $("#articleForm").serialize();
+    console.log("params---"+params);
     var url = $('#articleForm #cid').val() != '' ? '/admin/article/modify' : '/admin/article/publish';
     tale.post({
         url: url,
@@ -279,6 +280,17 @@ function allow_feed(obj) {
         this_.attr('on', 'true');
         $('#allowFeed').val('true');
     }
+}
+function allow_top(obj) {
+	var this_ = $(obj);
+	var on = this_.attr('on');
+	if (on == 'true') {
+		this_.attr('on', 'false');
+		$('#allowTop').val('false');
+	} else {
+		this_.attr('on', 'true');
+		$('#allowTop').val('true');
+	}
 }
 
 function add_thumbimg(obj) {
