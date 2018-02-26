@@ -54,7 +54,7 @@ public class TestQiniu {
             e.printStackTrace();
         }
         Auth auth = Auth.create(accessKey, secretKey);
-        long expireInSeconds = 3600;//1小时，可以自定义链接过期时间
+        long expireInSeconds = 315360000;//10年，可以自定义链接过期时间,单位s
         return auth.privateDownloadUrl(publicUrl, expireInSeconds);
     }
     public static void main(String[] args) {
