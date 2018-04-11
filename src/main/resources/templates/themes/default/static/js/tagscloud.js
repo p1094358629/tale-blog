@@ -5,15 +5,15 @@ var mcList = [];
 var lasta = 1;
 var lastb = 1;
 var distr = true;
-var tspeed = 10;
+var tspeed = 20;
 var size = 200;
 var mouseX = 0;
 var mouseY = 10;
 var howElliptical = 1;
 var aA = null;
 var oDiv = null;
-//window.onload=function(){
-		
+var flag = false;
+//window.onload=function(){	
 	var i=0;
 	var oTag=null;
 	oDiv=document.getElementById('tagscloud');
@@ -40,6 +40,7 @@ var oDiv = null;
 				this.style.filter = "alpha(opacity=" + 100 * obj.alpha + ")";
 				this.style.opacity = obj.alpha;
 				this.style.zIndex = obj.zIndex;
+				
 			}
 		})(oTag)
 		oTag.offsetWidth = aA[i].offsetWidth;
@@ -48,12 +49,19 @@ var oDiv = null;
 	}
 	sineCosine( 0,0,0 );
 	positionAll();
+	console.log("tspeed-->"+tspeed);
 //	(function () {
 //            update();//?
 //            //bug原因:重复刷新时,1000个平率内多次做了递归
 //            setTimeout(arguments.callee, 1000);//移动频率
 //        })();
-	 setInterval(update,40);//等于上述效果
+	if(!sessionStorage.getItem("flag")){
+		setInterval(update,40);//等于上述效果
+		sessionStorage.setItem("flag", true)
+	}
+	
+	
+	 
 //}
 function update()
 {

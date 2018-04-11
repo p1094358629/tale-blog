@@ -33,7 +33,7 @@
 <header id="header" class="header bg-white">
     <div class="navbar-container">
         <div class="navbar-menu">
-            <a href="${site_url('/')}" target="__parent">首页</a>
+            <a href="${site_url('/')}">首页</a>
             <a href="${site_url('/archives')}">归档</a>
             <a href="${site_url('/games')}">游戏</a>
             <a href="${site_url('/talks')}">时间轴</a>
@@ -63,10 +63,10 @@
         </div>
     </div>
 </header>
-    <script language="javascript">
+<!--     <script language="javascript"> 
         //防止页面后退
-        history.pushState(null, null, document.URL);
-        window.addEventListener('popstate', function () {
-            history.pushState(null, null, document.URL);
-        });
-    </script>
+         history.pushState(null, null, document.URL);
+         window.addEventListener('popstate', function () {
+             history.pushState(null, null, document.URL);
+         });
+     </script>   -->
