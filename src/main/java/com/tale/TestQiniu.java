@@ -58,7 +58,7 @@ public class TestQiniu {
         return auth.privateDownloadUrl(publicUrl, expireInSeconds);
     }
     public static void main(String[] args) {
-        TestQiniu.upload("","111");
-        System.out.println(load("111"));
+        TestQiniu.upload("E:\\uploadFile\\seal_refer.png","seal_refer");
+        System.out.println(load("seal_refer"));
     }
 }

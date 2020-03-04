@@ -94,7 +94,7 @@ public class ContentsService {
         contents.setCreated(time);
         contents.setModified(time);
 
-        String tags       = contents.getTags();
+        String tags = contents.getTags();
         String categories = contents.getCategories();
 
         Integer cid = contents.save();
@@ -116,9 +116,9 @@ public class ContentsService {
         contents.setTags(contents.getTags() != null ? contents.getTags() : "");
         contents.setCategories(contents.getCategories() != null ? contents.getCategories() : "");
 
-        String  tags       = contents.getTags();
-        String  categories = contents.getCategories();
-        Integer cid        = contents.getCid();
+        String tags = contents.getTags();
+        String categories = contents.getCategories();
+        Integer cid = contents.getCid();
 
         contents.update(cid);
 
